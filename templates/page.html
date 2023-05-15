@@ -1,0 +1,16 @@
+{% extends "layout/layout.html"%}
+{% block title %} 首頁 {% endblock title %}
+{% block content %}
+<h1>登入成功</h1>
+{% if type %}
+<script>
+Swal.fire(
+  'Good job!',
+  'You clicked the button!',
+  'success'
+)
+</script>
+
+
+{% endif %}
+{% endblock%}
