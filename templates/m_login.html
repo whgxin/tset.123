@@ -1,5 +1,5 @@
 {% extends "layout/layout.html"%}
-{% block title %} 使用者登入 {% endblock title %}
+{% block title %} 管理者登入 {% endblock title %}
 {% block css %} 
 <style>
 .divider:after,
@@ -22,7 +22,6 @@ height: 100%;
 {% endblock css%}
 {% block content %}
 
-
 <section class="vh-100">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -34,7 +33,7 @@ height: 100%;
         
         <form>
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3 fs-1">使用者登入</p>
+            <p class="lead fw-normal mb-0 me-3 fs-1">管理者登入</p>
             <button type="button" class="btn btn-primary btn-floating mx-1">
               <i class="fab fa-facebook-f"></i>
             </button>
@@ -53,10 +52,10 @@ height: 100%;
           </div>
         </form>
           <!-- Email input -->
-          <form action="/login" method="post" onsubmit="return Checksubmit()">
+          <form action="/m_login" method="post" onsubmit="return Checksubmit()">
           <div class="form-outline mb-4">
             <input id="account" class="form-control form-control-lg" name="account" />
-            <label class="form-label" for="account">Student ID</label>
+            <label class="form-label" for="account">Email address</label>
           </div>
 
           <!-- Password input -->
@@ -113,9 +112,9 @@ height: 100%;
   </div>
 </section>
 
-{% if type=='註冊成功' %}
+{% if type=='登入成功' %}
 <script>
-  Success('{{type}}','註冊成功');
+  Success('{{type}}','登入成功');
 </script>
 {% elif type=='登入失敗' %}
 <script>

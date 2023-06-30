@@ -1,0 +1,42 @@
+{% extends "layout/back.html" %}
+{% block title %}上傳圖片{% endblock %}
+{% block main %}
+<h1 class="mt-4">輪播圖片新增</h1>
+<div class="mt-4">
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type = "submit" value="提交">
+    </form>
+</div>
+{% if type =="新增成功" %}
+    
+    <script>
+        Success('{{type}}','新增成功');
+    </script>
+
+{%elif type =="附檔名不符" %}
+<script>
+Swal.fire({
+  icon: 'error',
+  title: '{{type}}',
+  text: '允許上傳 JPG PNG JPEG'
+})
+</script>
+
+{%elif type =="檔案大小不符" %}
+<script>
+Swal.fire({
+  icon: 'error',
+  title: '{{type}}',
+  text: '不可超過1MB'
+})
+</script>
+
+
+{% endif %}
+
+
+
+
+
+{% endblock main %}

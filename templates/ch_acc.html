@@ -1,0 +1,42 @@
+{% extends "layout/u_back.html" %}
+{% block title %} 成績查詢 {% endblock title %}
+{% block main %}
+<h1 class="mt-4">成績查詢</h1>
+<table class="table" style="width: 1000px;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">學號</th>
+        <th scope="col">學期</th>
+        <th scope="col">科目</th>
+        <th scope="col">成績</th>
+        <th scope="col">備註</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in range(data2|length) %}
+        <tr>     
+          <th scope="row">{{ i+1 }}</th>
+          <td>{{data2[i].number}}</td>
+          <td>{{data2[i].date}}</td>
+          <td>{{data2[i].hours}}</td>
+          <td>{{data2[i].money}}</td>
+          <td>{{data2[i].note}}</td>
+        </tr>
+      {% endfor %}
+        
+    </tbody>
+  </table>
+
+
+
+
+
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+      {% for message in messages %}
+      <script>Success('{{message}}')</script>
+      {% endfor %}
+  {% endif %}
+  {% endwith %}
+{% endblock main %}
