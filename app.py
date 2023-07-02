@@ -20,6 +20,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 
+
 app.secret_key = "Your Key"
 app.config['SESSION_TYPE'] = "test session"
 
@@ -27,7 +28,9 @@ def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = sql.connect(DATABASE)
-    return db
+    return dbp
+
+    
 
 @app.teardown_appcontext
 def close_connection(exception):
